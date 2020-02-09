@@ -413,7 +413,13 @@ extern const struct _mp_obj_module_t mp_module_touchscreen;
 // We need to provide a declaration/definition of alloca()
 #include <alloca.h>
 
+#if CONFIG_BOARD_M5STICK
+#define MICROPY_HW_BOARD_NAME "M5Stick-V"
+#elif CONFIG_BOARD_UNITV
+#define MICROPY_HW_BOARD_NAME "Unit-V"
+#else
 #define MICROPY_HW_BOARD_NAME "Sipeed_M1"
+#endif
 #define MICROPY_HW_MCU_NAME "kendryte-k210"
 #define MICROPY_PY_SYS_PLATFORM "MaixPy"
 

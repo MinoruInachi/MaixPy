@@ -3,32 +3,16 @@ class Board_Info:
         self.pin_num = 48
         self.ISP_RX = 4
         self.ISP_TX = 5
-        self.WIFI_TX = 39
-        self.WIFI_RX = 38
-        self.CONNEXT_A=35
-        self.CONNEXT_B=34
-        self.MPU_SDA=29
-        self.MPU_SCL=28
-        self.MPU_INT=23
-        self.SPK_LRCLK=14
-        self.SPK_BCLK=15
-        self.SPK_DIN=17
-        self.SPK_SD=25
-        self.MIC_LRCLK=10
-        self.MIC_DAT=12
-        self.MIC_CLK=13
-        self.LED_W=7
-        self.LED_R=6
-        self.LED_G=9
-        self.LED_B=8
-        self.BUTTON_A=36
-        self.BUTTON_B=37
-        self.pin_name=[
-            '','','','','ISP_RX','ISP_TX','LED_R','LED_W','LED_B','LED_G',
-            'MIC_LRCLK','','MIC_DAT','MIC_CLK','SPK_LRCLK','SPK_BCLK','','SPK_DIN','','',
-            '','','','MPU_INT','','SPK_SD','','','MPU_SCL','MPU_SDA',
-            '','','','','CONNEXT_B','CONNEXT_A','BUTTON_A','BUTTON_B','WIFI_RX','WIFI_TX',
-            '','','','','','','','']
+        self.CONNEXT_A = 35
+        self.CONNEXT_B = 34
+        self.LED_WS2812 = 8
+        self.BUTTON_A = 18
+        self.BUTTON_B = 19
+        self.pin_name=['','','','','ISP_RX', 'ISP_TX','','','LED_WS2812','',
+                       '','','','','','','','','BUTTON_A','BUTTON_B',
+                       '','','','','','','','','','',
+                       '','','','','CONNEXT_B','CONNEXT_A','','','','',
+                       '','','','','','','','']
 
     def pin_map(self,Pin = None):
         num_len = 10
