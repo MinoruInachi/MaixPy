@@ -118,7 +118,7 @@ uint32_t on_i2c0_transmit()
     if(i2c_obj[0] != NULL)
     {
         ret = mp_call_function_0(i2c_obj[0]->on_transmit);
-        return mp_obj_get_int(ret);
+        return mp_obj_get_int(ret) & 0xFF;
     }
     return 0;
 }
@@ -142,7 +142,7 @@ uint32_t on_i2c1_transmit()
     if(i2c_obj[1] != NULL)
     {
         ret = mp_call_function_0(i2c_obj[1]->on_transmit);
-        return mp_obj_get_int(ret);
+        return mp_obj_get_int(ret) & 0xFF;
     }
     return 0;
 }
@@ -166,7 +166,7 @@ uint32_t on_i2c2_transmit()
     if(i2c_obj[2] != NULL)
     {
         ret = mp_call_function_0(i2c_obj[2]->on_transmit);
-        return mp_obj_get_int(ret);
+        return mp_obj_get_int(ret) & 0xFF;
     }
     return 0;
 }
@@ -299,8 +299,8 @@ STATIC mp_obj_t machine_i2c_init_helper(machine_hard_i2c_obj_t* self, mp_uint_t 
             mp_raise_ValueError("[MAIXPY]I2C: pin(scl/sda) error!"); 
         self->pin_scl = mp_obj_get_int(args[ARG_scl].u_obj);
         self->pin_sda = mp_obj_get_int(args[ARG_sda].u_obj);
-        fpioa_set_function(self->pin_scl, FUNC_I2C0_SCLK + self->i2c * 2);
-        fpioa_set_function(self->pin_sda, FUNC_I2C0_SDA + self->i2c * 2);
+        fpioa_set_function(self->pin_scl, FUNC_I2C0_SCLK + i2c_id * 2);
+        fpioa_set_function(self->pin_sda, FUNC_I2C0_SDA + i2c_id * 2);
     }
 
     // set param
