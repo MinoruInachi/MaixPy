@@ -12,6 +12,9 @@ menu "Board config"
 
 		config BOARD_UNITV
 			bool "Select board Unit-V"
+
+		config BOARD_TWATCH
+			bool "Select board TWatch"
 	endchoice
 
 	config LCD_DEFAULT_WIDTH
